@@ -18,7 +18,7 @@ watch -n 1 ./nameit.bash
 ```
 iptables --list
 ```
-![](image/c.png)
+![](image/c.PNG)
 > 駭客的ip傳來的封包都會被drop掉
 
 ## 如何設計bash檔
