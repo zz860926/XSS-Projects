@@ -3,7 +3,8 @@
 ## 使用環境
 * 伺服器端為centos 7(wordpress需要Apache,PHP,MariaDB)
     >　Wordpress架設參考[Install WordPress 5 with Apache, MariaDB 10 and PHP 7 on CentOS 7](https://www.tecmint.com/install-wordpress-with-apache-on-centos-rhel-fedora/)。
-
+* 駭客端為kali linux
+(簡易說明可前往[暴力破解Wordpress](https://github.com/NQUwebsecurityproject/website-security/tree/master/Hydra%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3Wordpress))
 ## bash檔流程圖
 ![](image/a.png)
 
