@@ -40,15 +40,15 @@ cat /var/log/httpd/tecminttest-acces-log | grep "$(env LANG=en_US date '+%d/%b/%
 ```bash
 ip=$(cat log.txt | grep POST | grep wp-login.php | awk {'print $1'} | sort | uniq)
 ```
-grep POST是因爲使用者在訪問登入頁面時就已經是用get去請求登入頁面資料，所以利用過濾POST才是在算真正送登入資料的次數。
-wp-login.php是登入頁面名稱，主要防範暴力破解所以只針對登入頁面進行防護。
+grep POST是因爲使用者在訪問登入頁面時就已經是用get去請求登入頁面資料，所以利用過濾POST才是在算真正送登入資料的次數。   
+wp-login.php是登入頁面名稱，主要防範暴力破解所以只針對登入頁面進行防護。    
 記得log檔訪問記錄可能會有一個ip有兩次以上訪問記錄，爲了區分各個ip，這邊先用sort和uniq去取出目前有哪些ip訪問。
 
 ### 細部操作
-首先-z "\$ip"是若$ip爲空，則代表沒有人進行登入動作
-	不爲空則利用awk {'print NF'}釐清現在是只有單個ip爲潛在駭客還是多個
-	若爲多個IP
-	則for 1到\$count，取出各個IP，再利用取出來的\$ip1，到暫存去取該ip的訪問次數，次數超過25次後檢查iptables是否有擋掉該ip（-C部分），若無則用iptables擋掉ip（-A部分）。
+首先-z "\$ip"是若$ip爲空，則代表沒有人進行登入動作;   
+不爲空則利用awk {'print NF'}釐清現在是只有單個ip爲潛在駭客還是多個
+若爲多個IP    
+則for 1到\$count，取出各個IP，再利用取出來的\$ip1，到暫存去取該ip的訪問次數，次數超過25次後檢查iptables是否有擋掉該ip（-C部分），若無則用iptables擋掉ip（-A部分）。
 ```bash
 if [ -z "$ip" ]; then
     echo -e "\n!There's no people using hydra to hack you."
