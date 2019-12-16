@@ -10,9 +10,10 @@
 
 執行程式
 ```
-# 每秒執行一次
 watch -n 1 ./nameit.bash
 ```
+>每秒執行一次./nameit.bash
+
 ![](image/test.gif)
 
 查看iptables
