@@ -9,18 +9,27 @@
 
 執行程式
 ```
+# 每秒執行一次
 watch -n 1 ./nameit.bash
 ```
+![](image/test.gif)
 
+查看iptables
+```
+iptables --list
+```
+![](image/c.png)
+> 駭客的ip傳來的封包都會被drop掉
 
-## log檔位置
+## 如何設計bash檔
+### log檔位置
 先檢查自己的網頁的log檔是存放在哪裡
 ```
 cat /var/log/httpd/tecminttest-acces-log
 ```
 ![](image/b.PNG)
 
-## 編寫bash檔
+### 編寫bash檔
 ```
 vim nameit.bash
 ```
